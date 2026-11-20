@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ show_name }}</title>
+
+
+    <style>
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background:
+                #f4f7fb;
+        }
+
+
+        .box {
+
+            background:
+                white;
+
+            padding:
+                50px;
+
+            border-radius:
+                18px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0,0,0,0.08);
+
+            max-width:
+                550px;
+        }
+
+
+        h1 {
+
+            color:
+                #123d6b;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        p {
+
+            color:
+                #687789;
+
+            line-height:
+                1.6;
+        }
+
+
+        .error {
+
+            margin-top:
+                20px;
+
+            padding:
+                12px;
+
+            background:
+                #fff4f4;
+
+            color:
+                #b42318;
+
+            border-radius:
+                8px;
+
+            font-size:
+                13px;
+        }
+
+
+        a {
+
+            display:
+                inline-block;
+
+            margin-top:
+                20px;
+
+            padding:
+                11px 20px;
+
+            background:
+                #0d5fa8;
+
+            color:
+                white;
+
+            text-decoration:
+                none;
+
+            border-radius:
+                8px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="box">
+
+    <h1>
+        {{ show_name }}
+    </h1>
+
+    <p>
+        This exhibition is not connected yet.
+        The dashboard will be available once its
+        master Excel file is connected.
+    </p>
+
+
+    {% if message %}
+
+    <div class="error">
+        {{ message }}
+    </div>
+
+    {% endif %}
+
+
+    <a href="{{ url_for('home') }}">
+        ← Back to Exhibitions
+    </a>
+
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IEML | Exhibition Master Data Portal</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #092b49;
+            --navy-2: #0d4268;
+            --blue: #176b9d;
+            --blue-light: #eaf4fa;
+            --text: #172b45;
+            --muted: #718096;
+            --border: #e4eaf0;
+            --bg: #f5f8fb;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+
+        /* =====================================================
+           TOP NAVIGATION
+        ===================================================== */
+
+        .topbar {
+            height: 72px;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 42px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .topbar-inner {
+            width: 100%;
+            max-width: 1280px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .brand-logo {
+            height: 43px;
+            width: auto;
+            max-width: 125px;
+            object-fit: contain;
+        }
+
+        .brand-divider {
+            height: 27px;
+            width: 1px;
+            background: #dce3ea;
+        }
+
+        .brand-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.2px;
+        }
+
+        .brand-subtitle {
+            font-size: 10px;
+            color: #8491a0;
+            margin-top: 2px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .top-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #667587;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #28a66f;
+            box-shadow: 0 0 0 4px rgba(40, 166, 111, 0.10);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(73, 153, 205, 0.10),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(73, 153, 205, 0.10),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #082743 0%,
+                    #0c4268 60%,
+                    #12557f 100%
+                );
+
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 50%;
+            right: -180px;
+            top: -250px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            left: -130px;
+            bottom: -230px;
+        }
+
+        .hero-inner {
+            max-width: 1280px;
+            min-height: 350px;
+            margin: auto;
+            padding: 55px 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 30px;
+            color: #dcebf6;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-tag::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #66c2ed;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 44px;
+            line-height: 1.15;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero-description {
+            margin: 16px auto 0;
+            max-width: 850px;
+            color: #c8dbea;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 27px;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            padding: 10px 16px;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            color: #d8e6f1;
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
+
+        .container {
+            max-width: 1280px;
+            margin: auto;
+            padding: 48px 42px 65px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.4px;
+        }
+
+        .section-heading p {
+            margin: 7px 0 0;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .section-count {
+            font-size: 12px;
+            color: #697a8c;
+            background: white;
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           CARDS
+        ===================================================== */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            min-height: 330px;
+            padding: 21px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 4px 18px rgba(20, 50, 80, 0.045);
+            transition:
+                transform 0.22s ease,
+                box-shadow 0.22s ease,
+                border-color 0.22s ease;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(
+                90deg,
+                #155f91,
+                #4ca6d5
+            );
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #cbdce8;
+            box-shadow:
+                0 18px 38px rgba(20, 50, 80, 0.11);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .logo-area {
+            height: 145px;
+            border: 1px solid #edf1f5;
+            background:
+                linear-gradient(
+                    145deg,
+                    #fbfcfd,
+                    #f7fafc
+                );
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            margin-bottom: 19px;
+        }
+
+        .logo-area img {
+            max-width: 88%;
+            max-height: 105px;
+            object-fit: contain;
+        }
+
+        .card-title-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #1a3049;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .card-number {
+            color: #9aa8b6;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .open-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            background: #155f91;
+            color: white;
+            min-height: 44px;
+            border-radius: 9px;
+            padding: 0 15px;
+            font-size: 12px;
+            font-weight: 650;
+            margin-top: 22px;
+            transition: all 0.2s ease;
+        }
+
+        .open-btn:hover {
+            background: #0c4c77;
+            box-shadow:
+                0 8px 18px rgba(13, 76, 119, 0.18);
+        }
+
+        .arrow {
+            font-size: 17px;
+            transition: transform 0.2s ease;
+        }
+
+        .open-btn:hover .arrow {
+            transform: translateX(4px);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .topbar {
+                padding: 0 25px;
+            }
+
+            .hero-inner,
+            .container {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+
+        @media (max-width: 680px) {
+
+            .topbar {
+                height: 65px;
+                padding: 0 18px;
+            }
+
+            .brand-logo {
+                height: 35px;
+                max-width: 95px;
+            }
+
+            .brand-divider {
+                height: 22px;
+            }
+
+            .brand-title {
+                font-size: 14px;
+            }
+
+            .brand-subtitle {
+                display: none;
+            }
+
+            .top-status {
+                display: none;
+            }
+
+            .hero-inner {
+                min-height: auto;
+                padding: 42px 18px 45px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 29px;
+                letter-spacing: -0.5px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+                line-height: 1.65;
+            }
+
+            .hero-meta {
+                gap: 8px;
+                margin-top: 22px;
+            }
+
+            .hero-meta-item {
+                padding: 9px 12px;
+                font-size: 11px;
+            }
+
+            .container {
+                padding: 35px 18px 50px;
+            }
+
+            .section-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                min-height: 315px;
+            }
+
+            .logo-area {
+                height: 140px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TOP NAVIGATION
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-inner">
+
+            <div class="brand">
+
+                <img
+                    class="brand-logo"
+                    src="{{ url_for('static', filename='Ieml-logo.png') }}"
+                    alt="IEML"
+                >
+
+                <div class="brand-divider"></div>
+
+                <div>
+
+                    <div class="brand-title">
+                        Exhibition Master Data Portal
+                    </div>
+
+                    <div class="brand-subtitle">
+                        IEML · Centralized Data Management
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="top-status">
+
+                <span class="status-dot"></span>
+
+                Portal Active
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <div class="hero-content">
+
+                <div class="hero-tag">
+                    Master Data Management
+                </div>
+
+
+                <h1>
+                    Exhibition Master Data Portal
+                </h1>
+
+
+                <p class="hero-description">
+                    Centralized access to exhibition master data,
+                    category-wise information and downloadable reports
+                    through a single professional workspace.
+                </p>
+
+
+                <div class="hero-meta">
+
+                    <div class="hero-meta-item">
+                        5 Exhibitions
+                    </div>
+
+                    <div class="hero-meta-item">
+                        Category-wise Data
+                    </div>
+
+                    <div class="hero-meta-item">
+                        Excel Export
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-heading">
+
+                <h2>
+                    Exhibitions
+                </h2>
+
+                <p>
+                    Select an exhibition to access its master data dashboard.
+                </p>
+
+            </div>
+
+
+            <div class="section-count">
+                5 Active Exhibitions
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             EXHIBITION CARDS
+        ================================================== -->
+
+        <div class="cards">
+
+
+            {% for exhibition in exhibitions %}
+
+
+            <div class="card">
+
+                <div>
+
+
+                    <div class="logo-area">
+
+                        <img
+                            src="{{ url_for(
+                                'static',
+                                filename=exhibition.logo
+                            ) }}"
+                            alt="{{ exhibition.name }}"
+                        >
+
+                    </div>
+
+
+
+                    <div class="card-title-row">
+
+                        <h3>
+                            {{ exhibition.name }}
+                        </h3>
+
+
+                        <span class="card-number">
+
+                            {% if loop.index < 10 %}
+                                0
+                            {% endif %}
+
+                            {{ loop.index }}
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <a
+                    href="{{ url_for(
+                        'dashboard',
+                        slug=exhibition.slug
+                    ) }}"
+                    class="open-btn"
+                >
+
+                    <span>
+                        Open Dashboard
+                    </span>
+
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>
